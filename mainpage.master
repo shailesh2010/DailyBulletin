@@ -1,0 +1,301 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mainpage.master.cs" Inherits="mainpage" %>
+
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxImageSlider" tagprefix="dx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Daily Bulletin</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="css/global.css" rel="stylesheet" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript" language="javascript">
+    function DisableBackButton() {
+        window.history.forward()
+    }
+    DisableBackButton();
+    window.onload = DisableBackButton;
+    window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+    window.onunload = function () { void (0) }
+ </script>
+ 
+    <style type="text/css">
+        .style1
+        {
+            width: 76px;
+        }
+        .style2
+        {
+            width: 79px;
+        }
+        .style3
+        {
+            width: 146px;
+        }
+        .style4
+        {
+            width: 119%;
+            height: 237px;
+            margin-right: 4px;
+            margin-left: 0px;
+        }
+        .style5
+        {
+            width: 640px;
+        }
+        .style8
+        {
+            width: 16px;
+        }
+        .login
+        {
+         vertical-align:top;    
+        }
+        .style9
+        {
+            width: 119%;
+            height: 49px;
+            margin-right: 4px;
+            margin-left: 0px;
+            text-align: left;
+        }
+        .main-headline
+        {
+            float: left;
+            width: 750px;
+            font-size: 2.3em;
+             font-weight : normal;
+             line-height: 1.0em;
+            letter-spacing: -1px;
+            color: #000;
+             margin: 0 0 6px 0;
+            padding: 0 19px 0 0;
+            font-family:Times New Roman
+            
+            
+        }
+        .style10
+        {
+            width: 310px;
+        }
+        .style11
+        {
+            width: 322px;
+        }
+        .ad
+        {
+            width: 310px;
+            height: 209px;
+        }
+        .ad-right
+        {
+            width: 317px;
+            height: 211px;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+
+
+<asp:ContentPlaceHolder ID="contentplaceholder1" runat="server">
+    <div id="top">
+    </div>
+
+    <div id="header">
+        <div id="logo">
+            <a href="#">
+            <img src="img/wireframe/logo.png" alt="" /></a>
+        </div>
+    </div>
+    </asp:ContentPlaceHolder>
+
+<asp:ContentPlaceHolder ID="navigation" runat="server">
+    <div id="nav">
+        <ul>
+            <li><a href="Default.aspx">Home</a></li>
+            <li><a href="Default.aspx?type=National">National</a></li>
+            <li><a href="Default.aspx?type=International">Intenational</a></li>
+            <li><a href="Default.aspx?type=Politics">Politics</a></li>
+            <li><a href="Default.aspx?type=Sports">Sports</a></li>
+            <li><a href="weather.aspx">Weather</a></li>
+            <li class="last"><a href="contact.aspx">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <div id="sub-nav">
+        <ul>
+            <li class="title">Stay in the know</li>
+            <li>|</li>
+            <li>
+                <img src="img/icons/fb.jpg" alt="" /><a 
+                    href="https://www.facebook.com/dailybulletin" target="_blank">FACEBOOK</a></li>
+            <li>|</li>
+            <li>
+                <img src="img/icons/twitter.png" alt="" /><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+        </ul>
+    </div>
+     </asp:ContentPlaceHolder>
+<form id="form1" runat="server">
+<div id="content-wrapper">
+
+  
+  
+    
+    <table class="style4">
+        <tr>
+            <td class="style5">
+                <div id="headlines">                            
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+      
+      
+                </asp:ContentPlaceHolder>
+                </div>
+             &nbsp;
+            </td>
+            <td class="login">
+                <div id="sidebars">
+                 <asp:ContentPlaceHolder ID="Login" runat="server">
+           
+        <table style="width:99%;">
+            <tr>
+                <td class="style9" bgcolor="#DC0000" colspan="2" 
+                    
+                    style="font-size:x-large; color: #FFFFFF">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    SIGN IN
+                    </td>
+                
+            </tr>
+            <tr>
+                <td class="style8">
+                    UserName</td>
+                <td class="style2">
+                    <asp:TextBox ID="txtusername" runat="server" Width="156px" ></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtusername"></asp:RequiredFieldValidator>
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="style8">
+                    Password</td>
+                <td class="style2">
+                    <asp:TextBox ID="txtpassword" runat="server" Width="155px" TextMode="Password"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtpassword"></asp:RequiredFieldValidator>
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="style1" colspan="2">
+                    <asp:Button ID="Button1" runat="server" Text="login" onclick="Button1_Click" />
+                    &nbsp;</td>
+                
+                
+            </tr>
+            <tr>
+                <td class="style1" colspan="2">
+                    <asp:Label ID="Label1" runat="server" ForeColor="#FF6666"></asp:Label>
+                </td>
+               
+            </tr>
+            <tr>
+            <td colspan= "2" class="style3">
+                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" 
+                    onclick="LinkButton1_Click">Forget Password</asp:LinkButton>
+            </td>
+            </tr>
+            <tr>
+                <td class="style1" colspan="2">
+                    <asp:HyperLink ID="HyperLink1" runat="server" ForeColor="#0066FF" 
+                        NavigateUrl="~/signup.aspx">click here to sign up</asp:HyperLink>
+                </td>
+               
+            </tr>
+        </table>
+        <br />
+        <br />
+                     <dx:ASPxImageSlider ID="ASPxImageSlider1" runat="server" BinaryImageCacheFolder="~\Thumb\"                    
+                     Height="240px" ImageSourceFolder="~/abc" 
+                    Width="300px" style="margin-bottom: 0px">
+                    <SettingsImageArea ImageSizeMode="FillAndCrop" />
+                         <SettingsNavigationBar Mode="Dots" 
+                             ThumbnailsModeNavigationButtonVisibility="None" />
+                    <SettingsSlideShow AutoPlay="True" Interval="7000" 
+                             PausePlayingWhenMouseOver="True" />              
+                     </dx:ASPxImageSlider>
+       
+        </asp:ContentPlaceHolder>
+        
+    </div>
+            </td>
+        </tr>
+      
+    </table>         
+   
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        <table class="dxflInternalEditorTable" style="height: 239px">
+            <tr>
+                <td class="style10">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <dx:ASPxImageSlider ID="ASPxImageSlider2" runat="server" 
+                        BinaryImageCacheFolder="~\Thumb\" ImageSourceFolder="~/ads123" 
+                        ShowNavigationBar="False" Width="300px" Height="300px" 
+                        style="margin-top: 3px">
+                        <SettingsImageArea ImageSizeMode="FillAndCrop" />
+                        <SettingsNavigationBar Mode="Dots" 
+                            ThumbnailsModeNavigationButtonVisibility="Faded" />
+                        <SettingsSlideShow AutoPlay="True" PausePlayingWhenMouseOver="True" />
+                    </dx:ASPxImageSlider>
+                </td>
+                <td class="style11">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <dx:ASPxImageSlider ID="ASPxImageSlider3" runat="server" 
+                        BinaryImageCacheFolder="~\Thumb\" ImageSourceFolder="~/abc" 
+                        ShowNavigationBar="False" Width="300px" Height="300px">
+                        <SettingsImageArea ImageSizeMode="FillAndCrop" />
+                        <SettingsNavigationBar Mode="Dots" />
+                        <SettingsSlideShow PausePlayingWhenMouseOver="True" AutoPlay="True" />
+                    </dx:ASPxImageSlider>
+                </td>
+                 <td class="style11">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <dx:ASPxImageSlider ID="ASPxImageSlider4" runat="server" 
+                        BinaryImageCacheFolder="~\Thumb\" ImageSourceFolder="~/ads" 
+                        ShowNavigationBar="False" Width="300px" Height="300px">
+                        <SettingsImageArea ImageSizeMode="FillAndCrop" />
+                        <SettingsNavigationBar Mode="Dots" />
+                        <SettingsSlideShow PausePlayingWhenMouseOver="True" AutoPlay="True" />
+                    </dx:ASPxImageSlider>
+                </td>
+               <%-- <td>
+                    <a href="#">
+                    <img alt="" class="ad" src="img/side-ad.png" /></a>
+                </td>--%>
+            </tr>
+        </table>
+    </asp:ContentPlaceHolder>
+   
+    </div>
+    </form> 
+    
+ 
+
+<asp:ContentPlaceHolder ID="ContetPlaceHolder5" runat="server" >
+    <div id="footer">
+        <ul>
+            <li>©2014 <a href="#">Daily Bulletin</a></li>
+            <li>|</li>
+            <li><a href="adminlogin.aspx">Admin</a></li>
+            <li>|</li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li>|</li>
+            <li><a href="#">Careers</a></li>
+            <li>|</li>           
+            <li><a href="#">Sitemap</a></li>
+            <li>|</li>
+            <li>Designed,Developed and Tested by <a href="#">Shailesh</a></li>
+        </ul>
+    </div>
+</asp:ContentPlaceHolder>
+
+</body>
+</html>
